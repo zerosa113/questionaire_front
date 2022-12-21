@@ -4,7 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"">
+    <link rel=" stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed&family=Gilda+Display&display=swap">
+    <link rel="stylesheet" href="css/plugins.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <script src="./jquery/jquery.min.js" defer></script>
     <script src="./bootstrap/js/bootstrap.min.js" defer></script>
     <script src="./bootstrap/popper.min.js" defer></script>
@@ -17,8 +21,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
+                    <div class="col-md-12 pt-3 m-3">
 
-                    <h2>問卷標題</h2>
+                        <h2>問卷標題</h2>
+                    </div>
 
                     <div class="">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo accusamus alias impedit
@@ -30,17 +36,22 @@
                     </div>
 
                     <div id="QuestionaireInput">
+                        <form action="./questionaireCheck.html" method="get">
+                            <p>姓名* <input id="name" type="text" placeholder="請輸入姓名" required></p>
+                            <p>年齡* <input id="age" type="text" placeholder="請輸入年齡" required></p>
+                            <p>手機* <input id="phone" type="text" placeholder="請輸入手機" required></p>
+                            <p>Email* <input id="email" type="text" placeholder="請輸入email" required></p>
 
-                        <p>姓名* <input id="name" type="text" placeholder="請輸入姓名" required></p>
-                        <p>年齡* <input id="age" type="text" placeholder="請輸入年齡" required></p>
-                        <p>手機* <input id="phone" type="text" placeholder="請輸入手機" required></p>
-                        <p>Email* <input id="email" type="text" placeholder="請輸入email" required></p>
+                        </form>
 
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                1111
-                            </label>
+                        <div class="row">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    1111
+                                </label>
+                            </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="flexRadioDefault"
                                     id="flexRadioDefault2" checked>
@@ -63,6 +74,9 @@
                                 </label>
                             </div>
                         </div>
+
+
+
                         <button id=""><a href="index.html">取消</a></button>
                         <button id="">送出</button>
                     </div>
