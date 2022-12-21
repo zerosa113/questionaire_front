@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./jquery/jquery.min.js" defer></script>
+    <title>index</title>
+</head>
+
+<body>
+    <header class="header"></header>
+    <main class="main">
+        <h2>問卷搜尋</h2>
+
+        <div id="questionaireSelect">
+            <p>問卷標題 <input id="titleSelect" type="text"></p>
+        </div>
+        <div id="datetimeSelect">
+
+            <p>開始 <input id="start" type="datetime-local"></p>
+            <p>結束 <input id="end" type="datetime-local"></p>
+            <button id="showQuestionaireBtn">確認</button>
+
+            <div id="showQuestionaireInfo">
+                <button class="test"><a href="questionaire.html">問卷頁</a></button>
+            </div>
+        </div>
+    </main>
+    <footer class="footer"></footer>
+</body>
+
+</html>
