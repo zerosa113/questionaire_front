@@ -4,10 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"">
-    <link rel=" stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed&family=Gilda+Display&display=swap">
-    <link rel="stylesheet" href="css/plugins.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel=" stylesheet" href="css/plugins.css" />
     <link rel="stylesheet" href="css/style.css" />
     <script src="./jquery/jquery.min.js" defer></script>
     <script src="./bootstrap/js/bootstrap.min.js" defer></script>
@@ -20,13 +18,13 @@
     <main class="main">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="col-md-12 pt-3 m-3">
+                <div class="col-12">
+                    <div class="pt-3 m-3">
 
-                        <h2>問卷標題</h2>
+                        <legend>問卷標題</legend>
                     </div>
 
-                    <div class="">
+                    <div class="single-facility">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo accusamus alias impedit
                             architecto
                             mollitia
@@ -34,76 +32,82 @@
                             dignissimos
                             nam, sint error.</p>
                     </div>
-
                     <div id="QuestionaireInput">
                         <form action="./questionaireCheck.html" method="get">
                             <p>姓名* <input id="name" type="text" placeholder="請輸入姓名" required></p>
                             <p>年齡* <input id="age" type="text" placeholder="請輸入年齡" required></p>
                             <p>手機* <input id="phone" type="text" placeholder="請輸入手機" required></p>
-                            <p>Email* <input id="email" type="text" placeholder="請輸入email" required></p>
-
+                            <p>Email* <input id="email" type="email" placeholder="請輸入email" required></p>
+                            <!-- 選擇題 -->
+                            <div class="col">
+                                <div class="row">
+                                    <p>問題Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                </div>
+                                <div class="row">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                        id="flexRadioDefault1">
+                                                    <label class="form-check-label" for="flexRadioDefault1">
+                                                        選擇1
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                        id="flexRadioDefault1">
+                                                    <label class="form-check-label" for="flexRadioDefault2">
+                                                        選擇2
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                        id="flexRadioDefault2" checked>
+                                                    <label class="form-check-label" for="flexRadioDefault3">
+                                                        選擇3
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                        id="flexRadioDefault2" checked>
+                                                    <label class="form-check-label" for="flexRadioDefault4">
+                                                        選擇4
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
                         </form>
-
-                        <div class="row">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                    id="flexRadioDefault1">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    1111
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                    id="flexRadioDefault2" checked>
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    2222
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                    id="flexRadioDefault2" checked>
-                                <label class="form-check-label" for="flexRadioDefault3">
-                                    3333
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                    id="flexRadioDefault2" checked>
-                                <label class="form-check-label" for="flexRadioDefault4">
-                                    4444
-                                </label>
-                            </div>
-                        </div>
-
-
-
                         <button id=""><a href="index.html">取消</a></button>
-                        <button id="">送出</button>
+                        <button id="sendBtn" type="submit"><a href="questionaireCheck.html">送出</a></button>
                     </div>
                 </div>
             </div>
         </div>
     </main>
     <footer class="footer"></footer>
-    <!-- jQuery -->
-    <script src="bootstrap/jquery-3.6.0.min.js"></script>
-    <script src="bootstrap/jquery-migrate-3.0.0.min.js"></script>
-    <script src="bootstrap/modernizr-2.6.2.min.js"></script>
-    <script src="bootstrap/imagesloaded.pkgd.min.js"></script>
-    <script src="bootstrap/jquery.isotope.v3.0.2.js"></script>
-    <script src="bootstrap/pace.js"></script>
-    <script src="bootstrap/popper.min.js"></script>
-    <script src="bootstrap/bootstrap.min.js"></script>
-    <script src="bootstrap/scrollIt.min.js"></script>
-    <script src="bootstrap/jquery.waypoints.min.js"></script>
-    <script src="bootstrap/owl.carousel.min.js"></script>
-    <script src="bootstrap/jquery.stellar.min.js"></script>
-    <script src="bootstrap/jquery.magnific-popup.js"></script>
-    <script src="bootstrap/select2.js"></script>
-    <script src="bootstrap/datepicker.js"></script>
-    <script src="bootstrap/smooth-scroll.min.js"></script>
-    <!-- 動畫樣式 -->
-    <script src="bootstrap/custom.js"></script>
+
 </body>
 
 </html>
