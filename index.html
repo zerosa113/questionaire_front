@@ -9,6 +9,8 @@
         href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed&family=Gilda+Display&display=swap">
     <script src="./jquery/jquery.min.js" defer></script>
     <script src="./bootstrap/js/bootstrap.min.js" defer></script>
+    <script src="./js/function/questionnaireFunction.js" defer></script>
+    <script src="./js/questionnaireSystem.js" defer></script>
     <title>index</title>
 </head>
 
@@ -22,12 +24,13 @@
         </div>
         <div id="datetimeSelect">
 
-            <p>開始 <input id="start" type="datetime-local"></p>
-            <p>結束 <input id="end" type="datetime-local"></p>
-            <button id="showQuestionaireBtn">確認</button>
+            <p>開始 <input id="startDate" type="date"></p>
+            <p>結束 <input id="endDate" type="date"></p>
+            <button id="showQuestionnaireBtn">確認</button>
 
-            <div id="showQuestionaireInfo">
-                <button class="test"><a href="questionaire.html">問卷頁</a></button>
+            <div id="showQuestionnaireInfo">
+                <table id="showQuestionnaireTable" class="questionnaire-table"></table>
+                <button class="test"><a href="questionnaire.html">問卷頁</a></button>
             </div>
         </div>
     </main>
