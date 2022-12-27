@@ -25,3 +25,14 @@ $(document).ready(function (e) {
 // })
 
 // 每一行問題+選項 empty append 共5行 
+
+// 長條圖/圓餅圖切換
+$(document).ready(function () {
+
+    $('#btn-change').click(function (e) {
+        // window.location.href = "http://127.0.0.1:5500/statistics.html"
+        e.preventDefault();
+        $('#pic').toggleClass('open');
+    });
+
+})

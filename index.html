@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed&family=Gilda+Display&display=swap">
+    <link rel="stylesheet" href="css/plugins.css" />
+    <link rel="stylesheet" href="css/style.css">
     <script src="./jquery/jquery.min.js" defer></script>
     <script src="./bootstrap/js/bootstrap.min.js" defer></script>
     <script src="./js/function/questionnaireFunction.js" defer></script>
@@ -17,22 +19,32 @@
 <body>
     <header class="header"></header>
     <main class="main">
-        <h2>問卷搜尋</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="pt-3 m-3">
+                        <h2>問卷搜尋</h2>
+                    </div>
 
-        <div id="questionaireSelect">
-            <p>問卷標題 <input id="titleSelect" type="text"></p>
-        </div>
-        <div id="datetimeSelect">
+                    <div id="questionaireSelect">
+                        <p>問卷標題 <input id="titleSelect" type="textQus" placeholder="請輸入問卷標題"></p>
+                    </div>
+                    <div id="datetimeSelect">
 
-            <p>開始 <input id="startDate" type="date"></p>
-            <p>結束 <input id="endDate" type="date"></p>
-            <button id="showQuestionnaireBtn">確認</button>
+                        <p>開始 <input id="startDate" type="date"></p>
+                        <p>結束 <input id="endDate" type="date"></p>
+                        <button id="showQuestionnaireBtn">確認</button>
 
-            <div id="showQuestionnaireInfo">
-                <table id="showQuestionnaireTable" class="questionnaire-table"></table>
-                <button class="test"><a href="questionnaire.html">問卷頁</a></button>
+                        <div id="showQuestionnaireInfo">
+                            <table id="showQuestionnaireTable" class="questionnaire-table"></table>
+                            <button class="test"><a href="questionnaire.html">問卷頁</a></button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
+
     </main>
     <footer class="footer"></footer>
 

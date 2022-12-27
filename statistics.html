@@ -5,7 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel=" stylesheet" href="css/plugins.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/plugins/animate.min.css">
+    <script src="./js/chart.js" defer></script>
     <script src="./jquery/jquery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/questionnaireSystem.js" defer></script>
     <script src="./bootstrap/js/bootstrap.min.js" defer></script>
     <title>statistics</title>
 </head>
@@ -25,6 +31,26 @@
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo accusamus alias impedit
                             architecto mollitia</p>
                     </div>
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-8 " id="pic">
+                                <!-- 長條圖 -->
+                                <div class="statisticsBar">
+                                    <canvas id="myChart"></canvas>
+                                </div>
+                                <!-- 圓餅圖-->
+                                <div class="statisticsDoughnut">
+                                    <canvas id="myChart2"></canvas>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary" id="btn-change">切換</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
 
                     <div id="QuestionaireInput">
 

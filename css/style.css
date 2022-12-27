@@ -1,15 +1,11 @@
 /* -------------------------------------------------------
-
  01. Basics style
  02. Helper style
  07. Navbar style
  08. Header style
  21. Facilties style
- 34. 404 Page style
  35. Footer style
- 
 ------------------------------------------------------- */
-
 
 /* ======= Basic style ======= */
 html,
@@ -444,70 +440,6 @@ hr {
     border-top: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-
-
-/* ======= 404 Page style ======= */
-.error-form {
-    position: relative;
-    max-width: 520px;
-    margin: 50px auto 0;
-}
-
-.error-form form {
-    position: relative;
-}
-
-.error-form .form-group {
-    position: relative;
-    margin: 0;
-}
-
-.error-form .form-group input[type="text"],
-.error-form .form-group input[type="search"],
-.error-form .form-group input[type="email"] {
-    position: relative;
-    width: 100%;
-    line-height: 30px;
-    padding: 20px 60px 20px 30px;
-    height: 70px;
-    display: block;
-    font-family: 'Barlow', sans-serif;
-    font-size: 15px;
-    background: #f4f4f4;
-    color: #666;
-    border-radius: 7px;
-    border: 1px solid #f4f4f4;
-    transition: all 300ms ease;
-}
-
-.error-form .form-group input[type="text"]:focus,
-.error-form .form-group input[type="email"]:focus,
-.error-form .form-group input[type="search"]:focus {
-    border-color: #f4f4f4;
-}
-
-.error-form .form-group input::-webkit-input-placeholder {
-    color: #f4f4f4;
-}
-
-.error-form .form-group .theme-btn {
-    position: absolute;
-    right: 20px;
-    top: 10px;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    font-size: 20px;
-    background: none;
-    color: #666;
-}
-
-.error-form .form-group .theme-btn span {
-    vertical-align: middle;
-    outline: none;
-}
-
-
 /* ======= Footer style ======= */
 .footer {
     position: relative;
@@ -676,4 +608,62 @@ hr {
 
 .footer-contact-mail:hover:before {
     background-color: #aa8453;
+}
+
+/* ================== */
+
+/* input text questionnaire title */
+
+input[type="textQus"]:focus,
+textarea:focus {
+    outline: none;
+}
+
+input[type="textQus"],
+textarea {
+    max-width: 100%;
+    margin-bottom: 15px;
+    padding: 5px 10px;
+    height: auto;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    /* border-width: 0 0 1px; */
+    /* border-style: solid; */
+    /* display: block; */
+    /* width: 100%; */
+    /* line-height: 1.5em; */
+    /* font-family: 'Barlow', sans-serif; */
+    /* font-size: 15px; */
+    /* font-weight: 400; */
+    /* color: #666; */
+    /* background-image: none; */
+    /* border-bottom: 1px solid #ececec; */
+    /* border-color: ease-in-out .15s, box-shadow ease-in-out .15s; */
+}
+
+/* pic change Bar or Doughnut*/
+#pic {
+    background-color: rgb(255, 255, 255);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+#pic .statisticsBar {
+    display: block;
+}
+
+#pic.open .statisticsBar {
+    display: none;
+}
+
+#pic .statisticsDoughnut {
+    display: none;
+}
+
+#pic.open .statisticsDoughnut {
+    position: relative;
+    transform: translate(10%, 0);
+    display: block;
+    height: 420px;
 }

@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel=" stylesheet" href="css/plugins.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <script src="./jquery/jquery.min.js" defer></script>
     <script src="./bootstrap/js/bootstrap.min.js" defer></script>
     <script src="./bootstrap/popper.min.js" defer></script>
@@ -18,9 +20,9 @@
             <div class="row">
                 <div class="col-md-12">
 
-                    <legend>問卷標題</legend>
+                    <legend id="questionTitle">問卷標題</legend>
 
-                    <div class="">
+                    <div id="questionDetails">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo accusamus alias impedit
                             architecto
                             mollitia
@@ -29,22 +31,124 @@
                             nam, sint error.</p>
                     </div>
 
-                    <div id="QuestionaireInput">
+                    <div id="QuestionnaireInput">
 
-                        <form action="">
-                            <table>
-                                <tr>
-                                    123
-                                </tr>
-                                <td>
-                                    456
-                                </td>
-                            </table>
+                        <form action="./questionnaireCheck.html" method="post">
+                            <p>姓名* <input id="name" type="text" placeholder="請輸入姓名" required></p>
+                            <p>手機* <input id="phone" type="text" placeholder="請輸入手機" value="666" readonly required></p>
+                            <p>Email* <input id="email" type="email" placeholder="請輸入email" required></p>
+                            <p>年齡* <input id="age" type="text" placeholder="請輸入年齡" required></p>
+                            <div class="col">
+                                <div class="row">
+                                    <p>性別</p>
+                                </div>
+                                <div class="row">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-sex" type="radio"
+                                                        name="flexRadioDefaultSex" id="flexRadioDefaultSex">
+                                                    <label class="form-check-label" for="flexRadioDefaultSex1">
+                                                        生理男
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-sex" type="radio"
+                                                        name="flexRadioDefaultSex" id="flexRadioDefaultSex">
+                                                    <label class="form-check-label" for="flexRadioDefaultSex2">
+                                                        生理女
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-sex" type="radio"
+                                                        name="flexRadioDefaultSex" id="flexRadioDefaultSex" checked>
+                                                    <label class="form-check-label" for="flexRadioDefaultSex3">
+                                                        其他
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- 選擇題 -->
+                            <div class="col">
+                                <div class="row">
+                                    <p>問題Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                </div>
+                                <div class="row">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                        id="flexRadioDefault1">
+                                                    <label class="form-check-label" for="flexRadioDefault1">
+                                                        選擇1
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                        id="flexRadioDefault1">
+                                                    <label class="form-check-label" for="flexRadioDefault2">
+                                                        選擇2
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                        id="flexRadioDefault2" checked>
+                                                    <label class="form-check-label" for="flexRadioDefault3">
+                                                        選擇3
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                        id="flexRadioDefault2" checked>
+                                                    <label class="form-check-label" for="flexRadioDefault4">
+                                                        選擇4
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
                         </form>
 
 
 
-                        <button id=""><a href="questionaire.html">取消</a></button>
+                        <button id=""><a href="questionnaire.html">取消</a></button>
                         <button id="">送出</button>
                     </div>
                 </div>
