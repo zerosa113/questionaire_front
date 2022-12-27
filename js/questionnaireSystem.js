@@ -31,8 +31,7 @@ $(document).ready(function () {
 
     $('#btn-change').click(function (e) {
         // window.location.href = "http://127.0.0.1:5500/statistics.html"
-        e.preventDefault();
-        $('#pic').toggleClass('open');
-    });
-
+        e.preventDefault()
+        $('#pic').toggleClass('open')
+    })
 })
