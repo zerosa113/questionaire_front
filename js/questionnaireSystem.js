@@ -2,10 +2,10 @@
 $(document).ready(function (e) {
     getAllQuestionnaire()
 
-    $(document).on('click', 'button[id*=showQuestionnaireBtn]', function (e) {
+    $(document).on('click', 'button[id*=selectBtn]', function (e) {
         e.preventDefault()
 
-        let strTitle = $('#titleSelect').val()
+        let strTitle = $('#questionTitle').val()
         let startDate = $('#startDate').val()
         let endDate = $('#endDate').val()
 
@@ -33,5 +33,31 @@ $(document).ready(function () {
         // window.location.href = "http://127.0.0.1:5500/statistics.html"
         e.preventDefault()
         $('#pic').toggleClass('open')
+    })
+})
+
+$(document).ready(function () {
+
+    $('#sendBtn').click(function (e) {
+        // window.location.href = "http://127.0.0.1:5500/statistics.html"
+        e.preventDefault()
+        window.location.href = "http://127.0.0.1:5500/questionnaireCheck.html"
+
+    })
+})
+
+$(document).ready(function () {
+
+    $(document).on('click', 'button[id*=goWrite]', function (e) {
+        e.preventDefault()
+
+        let id = $('#goWrite').val()
+
+        sessionStorage.setItem('id', JSON.stringify({
+            qusId: id
+
+        }))
+
+
     })
 })

@@ -5,12 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel=" stylesheet" href="css/plugins.css" />
+    <!-- <link rel=" stylesheet" href="css/plugins.css" /> -->
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/questionaire.css" />
     <script src="./jquery/jquery.min.js" defer></script>
-    <script src="./js/questionnaireSystem.js"></script>
+    <script src="./js/function/questionnaireFunction.js" defer></script>
+    <script src="./js/getQuestionsDetails.js" defer></script>
+    <script src="./js/questionnaireSystem.js" defer></script>
     <script src="./bootstrap/js/bootstrap.min.js" defer></script>
-    <script src="./bootstrap/popper.min.js" defer></script>
     <title>questionaire</title>
 
 </head>
@@ -25,6 +27,9 @@
 
                         <legend id="questionTitle">問卷標題</legend>
                     </div>
+                    <p id="startTime">123456</p>
+                    <p>~</p>
+                    <p id="endTime">7891011</p>
 
                     <div class="single-facility" id="questionDetails">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo accusamus alias impedit
@@ -89,10 +94,13 @@
                             <!-- 選擇題 -->
                             <div class="col">
                                 <div class="row">
-                                    <p>問題描述</p>
+                                    <div class="qestion">
+                                        <!-- <p>問題描述</p> -->
+                                    </div>
+
                                 </div>
-                                <div class="row">
-                                    <table>
+                                <div class="row" id="qusList">
+                                    <!-- <table>
                                         <tr>
                                             <td>
                                                 <div class="form-check">
@@ -143,7 +151,7 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                    </table>
+                                    </table> -->
                                 </div>
                             </div>
 

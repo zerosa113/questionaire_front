@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed&family=Gilda+Display&display=swap">
-    <link rel="stylesheet" href="css/plugins.css" />
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/title.css" />
+    <!-- <link rel="stylesheet" href="css/plugins.css" />
+    <link rel="stylesheet" href="css/style.css"> -->
     <script src="./jquery/jquery.min.js" defer></script>
     <script src="./bootstrap/js/bootstrap.min.js" defer></script>
     <script src="./js/function/questionnaireFunction.js" defer></script>
@@ -23,30 +24,40 @@
             <div class="row">
                 <div class="col-12">
                     <div class="pt-3 m-3">
-                        <h2>問卷搜尋</h2>
+                        <h2 class="title">問卷搜尋</h2>
                     </div>
 
                     <div id="questionaireSelect">
-                        <p>問卷標題 <input id="titleSelect" type="textQus" placeholder="請輸入問卷標題"></p>
+                        <p class="day">問卷標題 <input id="txtTitle" class="titleSelect" type="textQus"
+                                placeholder="請輸入問卷標題"></p>
                     </div>
                     <div id="datetimeSelect">
 
-                        <p>開始 <input id="startDate" type="date"></p>
-                        <p>結束 <input id="endDate" type="date"></p>
-                        <button id="showQuestionnaireBtn">確認</button>
+                        <p class="day">開始 <input id="startDate" class="date" type="date"></p>
+                        <p class="day">結束 <input id="endDate" class="date" type="date"></p>
+                        <button type="button" id="selectBtn" class="showQuestionnaireBtn">搜尋</button>
 
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="body-table">
+
+                    <center>
                         <div id="showQuestionnaireInfo">
                             <table id="showQuestionnaireTable" class="questionnaire-table"></table>
-                            <button class="test"><a href="questionnaire.html">問卷頁</a></button>
+                            <button type="button" class="test"><a href="questionnaire.html">問卷頁</a></button>
                         </div>
-                    </div>
+                    </center>
                 </div>
 
             </div>
+
         </div>
 
     </main>
     <footer class="footer"></footer>
+    <div id="divAjax"></div>
 
 
 </body>

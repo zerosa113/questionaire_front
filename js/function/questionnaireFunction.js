@@ -23,14 +23,15 @@ function searchQuestionnaire(strTitle, startDate, endDate) {
             } else {
 
                 $('#showQuestionnaireTable').empty()
-                // $('#showQuestionnaireTable').append(`<tr><th>問卷</th><th>狀態</th><th>開始時間</th><th>結束時間</th></tr>`)
+                $('#showQuestionnaireTable').append(`<tr><th>問卷</th><th>狀態</th><th>開始時間</th><th>結束時間</th></tr>`)
+
                 // map的foreach
                 // $.each(orderInfoMap, function (key, value) {
                 //     $('#showQuestionaireTable').append(`<tr><td>${key}</td><td>${value}</td></tr>`)
                 // })
 
                 $.each(questionsResList, function (index, value) {
-                    $('#showQuestionnaireTable').append(`<tr><th>問卷</th><th>狀態</th><th>開始時間</th><th>結束時間</th></tr>`)
+                    // $('#showQuestionnaireTable').append(`<tr><th>問卷</th><th>狀態</th><th>開始時間</th><th>結束時間</th></tr>`)
                     $('#showQuestionnaireTable').append(`<tr><td>${value.questions.title}</td><td>${value.message}</td><td>${value.questions.startTime}</td><td>${value.questions.endTime}</td></tr>`)
 
                 })
@@ -61,17 +62,86 @@ function getAllQuestionnaire() {
             } else {
 
                 $('#showQuestionnaireTable').empty()
+                $('#showQuestionnaireTable').append(`<tr><th>填寫</th><th>問卷</th><th>狀態</th><th>開始時間</th><th>結束時間</th><th>觀看統計</th></tr>`)
                 // $('#showQuestionnaireTable').append(`<tr><th>問卷</th><th>狀態</th><th>開始時間</th><th>結束時間</th></tr>`)
                 // map的foreach
                 // $.each(orderInfoMap, function (key, value) {
                 //     $('#showQuestionaireTable').append(`<tr><td>${key}</td><td>${value}</td></tr>`)
                 // })
 
-                $.each(questionsResList, function (index, value) {
-                    $('#showQuestionnaireTable').append(`<tr><th>問卷</th><th>狀態</th><th>開始時間</th><th>結束時間</th><th>觀看統計</th></tr>`)
-                    $('#showQuestionnaireTable').append(`<tr><td>${value.questions.title}</td><td>${value.message}</td><td>${value.questions.startTime}</td><td>${value.questions.endTime}</td>
-                    <td><button ><a href="statistics.html">前往</a></button></td></tr>`)
-                    // 統計頁< button id = "goSatistics_${value.questions.id}" typy = "button" > 前往</button >
+                for (let item of questionsResList) {
+                    $('#showQuestionnaireTable').append(`<tr><td><button id ="goWrite_${item.questions.id}"><a href="questionnaire.html">填寫問卷</a></button></td><td>${item.questions.title}</td><td>${item.message}</td><td>${item.questions.startTime}</td><td>${item.questions.endTime}</td>
+                <td><button ><a href="statistics.html">前往</a></button></td></tr>`)
+                }
+                // $.each(questionsResList, function (index, value) {
+                //     $('#showQuestionnaireTable').append(`<tr><td><button id ="goWrite_${value.questions.id}"><a href="questionnaire.html">填寫問卷</a></button></td><td>${value.questions.title}</td><td>${value.message}</td><td>${value.questions.startTime}</td><td>${value.questions.endTime}</td>
+                //     <td><button ><a href="statistics.html">前往</a></button></td></tr>`)
+                //     // alert($('#goWrite').val())
+
+                //     // 統計頁< button id = "goSatistics_${value.questions.id}" typy = "button" > 前往</button >
+
+                // })
+            }
+        },
+        error: function (e) {
+            console.log(e)
+            alert('Failed')
+        }
+
+    })
+}
+
+function getQuestionsDetails(qusId) {
+
+    let objPostData = { id: qusId }
+
+    $.ajax({
+        url: 'http://localhost:8080/api/getQuestionsDetailsById',
+        method: 'POST',
+        contentType: 'application/json',
+        dataType: 'json',
+        data: JSON.stringify(objPostData),
+        success: function (res) {
+
+            let { message, title, details, startTime, endTime, qusAndOptions } = res
+
+            if (message === '查無此問卷') {
+                alert('查無此問卷')
+            } else {
+
+                $('#txtTitle').val(title)
+                $('#questionDetails').val(details)
+                $('#startTime').val(startTime)
+                $('#endTime').val(endTime)
+
+                // map的foreach
+                // $.each(orderInfoMap, function (key, value) {
+                //     $('#showQuestionaireTable').append(`<tr><td>${key}</td><td>${value}</td></tr>`)
+                // })
+
+                $.each(qusAndOptions, function (key, value) {
+
+                    $('.question').append(`<p>${key}</p>`)
+                    for (let item of value) {
+                        $('#qusList').append(`
+                        
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                        id="flexRadioDefault1">
+                                                    <label class="form-check-label" for="flexRadioDefault1">
+                                                        ${item}
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                        `)
+
+                    }
 
 
                 })

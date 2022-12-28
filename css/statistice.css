@@ -1,0 +1,45 @@
+
+
+body {
+    width: 800px;
+    margin: 0 auto;
+    background-color: #f7fbff;
+    font-family: 'Raleway', sans-serif;
+}
+
+.container {
+        padding-top: 64px;
+    }
+    
+.pt-3 {
+        font-size: 30px;
+        font-weight: 900;
+        text-align: left;
+        color: #88bcff;
+    }
+
+#btn-change{
+    outline: none;
+    border-color: #88bcff;
+    padding: 5px 15px;
+    color: rgb(255, 255, 255);
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    border-radius: 50px;
+    background-color: rgb(180, 161, 233);
+    border: 2px solid rgb(180, 161, 233);
+}
+
+#btn-change:hover{
+    color:rgb(190, 176, 228);
+    background-color:rgb(255, 255, 255);
+    border:2px rgb(180, 161, 233) solid;
+
+    /* color:#003C9D;
+    background-color:#fff;
+    border:2px #003C9D solid; */
+  }
+ 
+
+
