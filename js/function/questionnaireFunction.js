@@ -128,8 +128,10 @@ function getQuestionsDetails(id) {
                 $.each(qusAndOptions, function (key, value) {
 
                     $('#questionList').append(`<p>${key}</p>`)
-                    for (let item of value) {
-                        $('#questionList').append(`
+                    $.each(value, function (optionKey, optionValue) {
+
+                        if (optionValue === 1) {
+                            $('#questionList').append(`
                             <table>
                                     <tr>
                                         <td>
@@ -137,24 +139,24 @@ function getQuestionsDetails(id) {
                                                 <input class="form-check-input" type="radio" name="${key}"
                                                     id="flexRadioDefault1">
                                                 <label class="form-check-label" for="flexRadioDefault1">
-                                                    ${item}
+                                                    ${optionKey}
                                                 </label>
                                             </div>
                                         </td>
                                     </tr>
                             </table>
                         `)
-
-                        if (value.multiple_choice == 0) {
+                        }
+                        else if (optionValue === 0) {
                             $('#questionList').append(`
                                 <table>
                                     <tr>
                                         <td>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
+                                                <input class="form-check-input" type="checkbox" value="" name="${key}"
                                                     id="flexCheckDefault">
                                                 <label class="form-check-label" for="flexCheckDefault">
-                                                    ${item}
+                                                    ${optionKey}
                                                 </label>
                                             </div>
                                         </td>
@@ -163,10 +165,7 @@ function getQuestionsDetails(id) {
 
                             `)
                         }
-
-                    }
-
-
+                    })
                 })
             }
         },
