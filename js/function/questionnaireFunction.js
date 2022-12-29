@@ -23,7 +23,7 @@ function searchQuestionnaire(strTitle, startDate, endDate) {
             } else {
 
                 $('#showQuestionnaireTable').empty()
-                $('#showQuestionnaireTable').append(`<tr><th>問卷</th><th>狀態</th><th>開始時間</th><th>結束時間</th></tr>`)
+                $('#showQuestionnaireTable').append(`<tr><th>填寫</th><th>問卷</th><th>狀態</th><th>開始時間</th><th>結束時間</th><th>觀看統計</th></tr>`)
 
                 // map的foreach
                 // $.each(orderInfoMap, function (key, value) {
@@ -32,7 +32,7 @@ function searchQuestionnaire(strTitle, startDate, endDate) {
 
                 $.each(questionsResList, function (index, value) {
                     // $('#showQuestionnaireTable').append(`<tr><th>問卷</th><th>狀態</th><th>開始時間</th><th>結束時間</th></tr>`)
-                    $('#showQuestionnaireTable').append(`<tr><td>${value.questions.title}</td><td>${value.message}</td><td>${value.questions.startTime}</td><td>${value.questions.endTime}</td></tr>`)
+                    $('#showQuestionnaireTable').append(`<tr><td><button id="goWrite_${item.questions.id}" > 填寫問卷</button></td><td>${value.questions.title}</td><td>${value.message}</td><td>${value.questions.startTime}</td><td>${value.questions.endTime}</td><td><button ><a href="statistics.html">前往</a></button></td></tr>`)
 
                 })
             }

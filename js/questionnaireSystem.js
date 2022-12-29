@@ -5,7 +5,7 @@ $(document).ready(function (e) {
     $(document).on('click', 'button[id*=selectBtn]', function (e) {
         e.preventDefault()
 
-        let strTitle = $('#questionTitle').val()
+        let strTitle = $('#txtTitle').val()
         let startDate = $('#startDate').val()
         let endDate = $('#endDate').val()
 
