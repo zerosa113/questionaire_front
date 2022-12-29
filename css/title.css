@@ -10,9 +10,17 @@ body {
 }
 
 .body-table {
-    margin: 0 auto;
+    margin: 0px auto;
     background-color: #f7fbff;
     font-family: 'Raleway', sans-serif;
+    text-align: center;
+    display: flex;
+    padding: 20px;
+}
+
+
+.showQuestionsTable {
+    margin: auto;
 
 }
 
@@ -57,6 +65,14 @@ body {
     backface-visibility: hidden;
     transform-style: preserve-3d;
 
+}
+
+.showQuestionnaireBtn {
+    margin-left: 80%;
+}
+
+#endDate {
+    margin-bottom: 20px;
 }
 
 .date {

@@ -41,7 +41,7 @@ p {
     font-weight: 400;
     line-height: 1.75em;
     color: #666;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 
 h1,
@@ -136,7 +136,7 @@ button {
     line-height: 1.75em;
     -webkit-transition: background-color .15s ease-out;
     transition: background-color .15s ease-out;
-    background: transparent;
+    /* background: transparent; */
     border: 0px solid transparent;
 }
 
@@ -156,7 +156,7 @@ table,
 th,
 tr,
 td {
-    border: 1px solid #f8f5f0;
+    border: 1.5px solid #aa79ba;
 }
 
 th,

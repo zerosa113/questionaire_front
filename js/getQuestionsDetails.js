@@ -1,7 +1,6 @@
 $(document).ready(function () {
-    let {
-        qusId
+    let { id
     } = JSON.parse(sessionStorage.getItem('id'))
 
-    getQuestionsDetails(qusId)
+    getQuestionsDetails(id)
 })

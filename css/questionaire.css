@@ -5,8 +5,9 @@ body {
     -moz-font-smoothing: antialiased;
     font-smoothing: antialiased;
 } */
+
 table {
-    display: inline;
+    display: inline-block;
 }
 
 body {
@@ -15,6 +16,13 @@ body {
     margin-block-end: 1%;
     background-color: #f7fbff;
     font-family: 'Raleway', sans-serif;
+}
+
+p {
+    font-size: 16px;
+    font-weight: 400;
+    /* text-align: center; */
+    color: #88bcff;
 }
 
 .container {

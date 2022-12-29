@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel=" stylesheet" href="css/plugins.css" /> -->
     <link rel="stylesheet" href="css/style.css" />
+    <!-- <link rel="stylesheet" href="css/title.css"> -->
     <link rel="stylesheet" href="css/questionaire.css" />
     <script src="./jquery/jquery.min.js" defer></script>
     <script src="./js/function/questionnaireFunction.js" defer></script>
@@ -25,19 +26,22 @@
                 <div class="col-12">
                     <div class="pt-3 m-3">
 
-                        <legend id="questionTitle">問卷標題</legend>
+                        <legend id="questionTitle">
+                            <!-- ${title} -->
+                        </legend>
                     </div>
-                    <p id="startTime">123456</p>
+                    <p id="startTime">
+                        <!-- <p>${startTime}</p> -->
+                    </p>
                     <p>~</p>
-                    <p id="endTime">7891011</p>
+                    <p id="endTime">
+                        <!-- <p>${endTime}</p> -->
+                    </p>
 
                     <div class="single-facility" id="questionDetails">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo accusamus alias impedit
+                        <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo accusamus alias impedit
                             architecto
-                            mollitia
-                            sequi non officia eaque labore ipsam. Quibusdam, voluptas excepturi. Maxime corporis cum
-                            dignissimos
-                            nam, sint error.</p>
+                        </p> -->
                     </div>
                     <div id="QuestionnaireInput">
                         <form action="" method="get">
@@ -93,68 +97,42 @@
                             </div>
                             <!-- 選擇題 -->
                             <div class="col">
-                                <div class="row">
-                                    <div class="qestion">
-                                        <!-- <p>問題描述</p> -->
+                                <div id="questionList">
+                                    <div class="row">
+                                        <div class="question">
+                                            <!-- <p>問題描述</p> -->
+                                        </div>
                                     </div>
-
-                                </div>
-                                <div class="row" id="qusList">
-                                    <!-- <table>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                                        id="flexRadioDefault1">
-                                                    <label class="form-check-label" for="flexRadioDefault1">
-                                                        選擇1
-                                                    </label>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <table>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                                        id="flexRadioDefault1">
-                                                    <label class="form-check-label" for="flexRadioDefault2">
-                                                        選擇2
-                                                    </label>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <table>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                                        id="flexRadioDefault2" checked>
-                                                    <label class="form-check-label" for="flexRadioDefault3">
-                                                        選擇3
-                                                    </label>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <table>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                                        id="flexRadioDefault2" checked>
-                                                    <label class="form-check-label" for="flexRadioDefault4">
-                                                        選擇4
-                                                    </label>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table> -->
+                                    <div class="row" id="qusList">
+                                        <!-- <table>
+                                            <tr>
+                                                <td>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                            id="flexRadioDefault1">
+                                                        <label class="form-check-label" for="flexRadioDefault1">
+                                                            選擇1
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table> -->
+                                        <!-- <table>
+                                            <tr>
+                                                <td>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                            id="flexCheckDefault">
+                                                        <label class="form-check-label" for="flexCheckDefault">
+                                                            多選
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table> -->
+                                    </div>
                                 </div>
                             </div>
-
                             <button id="cancelBtn" class="btn btn-secondary"><a href="index.html">取消</a></button>
                             <button id="sendBtn" type="submit" class="btn btn-warning">送出</button>
                         </form>

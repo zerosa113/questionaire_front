@@ -51,13 +51,12 @@ $(document).ready(function () {
     $(document).on('click', 'button[id*=goWrite]', function (e) {
         e.preventDefault()
 
-        let id = $('#goWrite').val()
+        let id = $(this).prop('id').split('_')[1]
 
         sessionStorage.setItem('id', JSON.stringify({
-            qusId: id
+            id: id
 
         }))
-
-
+        window.location.href = "http://127.0.0.1:5500/questionnaire.html"
     })
 })

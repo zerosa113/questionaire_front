@@ -70,8 +70,14 @@ function getAllQuestionnaire() {
                 // })
 
                 for (let item of questionsResList) {
-                    $('#showQuestionnaireTable').append(`<tr><td><button id ="goWrite_${item.questions.id}"><a href="questionnaire.html">填寫問卷</a></button></td><td>${item.questions.title}</td><td>${item.message}</td><td>${item.questions.startTime}</td><td>${item.questions.endTime}</td>
-                <td><button ><a href="statistics.html">前往</a></button></td></tr>`)
+                    $('#showQuestionnaireTable').append(`
+                    <tr>
+                        <td><button id="goWrite_${item.questions.id}" > 填寫問卷</button></td>
+                        <td>${item.questions.title}</td><td>${item.message}</td>
+                        <td>${item.questions.startTime}</td>
+                        <td>${item.questions.endTime}</td>
+                        <td><button ><a href="statistics.html">前往</a></button></td>
+                    </tr>`)
                 }
                 // $.each(questionsResList, function (index, value) {
                 //     $('#showQuestionnaireTable').append(`<tr><td><button id ="goWrite_${value.questions.id}"><a href="questionnaire.html">填寫問卷</a></button></td><td>${value.questions.title}</td><td>${value.message}</td><td>${value.questions.startTime}</td><td>${value.questions.endTime}</td>
@@ -91,9 +97,9 @@ function getAllQuestionnaire() {
     })
 }
 
-function getQuestionsDetails(qusId) {
+function getQuestionsDetails(id) {
 
-    let objPostData = { id: qusId }
+    let objPostData = { id: id }
 
     $.ajax({
         url: 'http://localhost:8080/api/getQuestionsDetailsById',
@@ -109,10 +115,10 @@ function getQuestionsDetails(qusId) {
                 alert('查無此問卷')
             } else {
 
-                $('#txtTitle').val(title)
-                $('#questionDetails').val(details)
-                $('#startTime').val(startTime)
-                $('#endTime').val(endTime)
+                $('#questionTitle').append(`<legend >${title}</legend>`)
+                $('#questionDetails').append(`<p>${details}</p>`)
+                $('#startTime').append(`<p>${startTime}</p>`)
+                $('#endTime').append(`<p>${endTime}</p>`)
 
                 // map的foreach
                 // $.each(orderInfoMap, function (key, value) {
@@ -121,25 +127,42 @@ function getQuestionsDetails(qusId) {
 
                 $.each(qusAndOptions, function (key, value) {
 
-                    $('.question').append(`<p>${key}</p>`)
+                    $('#questionList').append(`<p>${key}</p>`)
                     for (let item of value) {
-                        $('#qusList').append(`
-                        
-                                    <table>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                                        id="flexRadioDefault1">
-                                                    <label class="form-check-label" for="flexRadioDefault1">
-                                                        ${item}
-                                                    </label>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
-
+                        $('#questionList').append(`
+                            <table>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="${key}"
+                                                    id="flexRadioDefault1">
+                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                    ${item}
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                            </table>
                         `)
+
+                        if (value.multiple_choice == 0) {
+                            $('#questionList').append(`
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    ${item}
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            `)
+                        }
 
                     }
 
