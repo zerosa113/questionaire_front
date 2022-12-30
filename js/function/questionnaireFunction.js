@@ -1,3 +1,4 @@
+//問卷搜尋(標題/開始結束時間)
 function searchQuestionnaire(strTitle, startDate, endDate) {
 
     let objPostData = { title: strTitle, startTime: startDate, endTime: endDate }
@@ -45,6 +46,7 @@ function searchQuestionnaire(strTitle, startDate, endDate) {
     })
 }
 
+//顯示所有問卷
 function getAllQuestionnaire() {
 
     $.ajax({
@@ -97,6 +99,7 @@ function getAllQuestionnaire() {
     })
 }
 
+//
 function getQuestionsDetails(id) {
 
     let objPostData = { id: id }
