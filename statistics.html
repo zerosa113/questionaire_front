@@ -12,6 +12,8 @@
     <script src="./js/chart.js" defer></script>
     <script src="./jquery/jquery.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/function/questionnaireFunction.js" defer></script>
+    <script src="./js/getQuestionsDetails.js" defer></script>
     <script src="./js/questionnaireSystem.js" defer></script>
     <script src="./bootstrap/js/bootstrap.min.js" defer></script>
     <title>statistics</title>
@@ -24,13 +26,15 @@
             <div class="row">
                 <div class="col-12">
                     <div class="pt-3 m-3">
-
-                        <legend>問卷統計</legend>
+                        <legend id="questionTitle">
+                            <!-- 問卷統計標題 -->
+                        </legend>
                     </div>
-
-                    <div class="single-facility">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo accusamus alias impedit
-                            architecto mollitia</p>
+                    <div class="pt-3 m-3">
+                        <div class="single-facility" id="questionDetails">
+                            <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo accusamus alias impedit
+                                architecto mollitia</p> -->
+                        </div>
                     </div>
 
                     <div class="container">
@@ -51,8 +55,12 @@
                         </div>
                     </div>
 
+                    <div class="container">
 
-
+                        <div class="row ">
+                            <button class="btn-index"><a href="./index.html">返回首頁</a></button>
+                        </div>
+                    </div>
                     <div id="QuestionaireInput">
 
                     </div>

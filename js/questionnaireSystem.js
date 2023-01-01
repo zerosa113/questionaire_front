@@ -11,6 +11,7 @@ $(document).ready(function (e) {
 
         // $('#showQuestionnaireTable').empty()
         searchQuestionnaire(strTitle, startDate, endDate)
+
     })
 })
 
@@ -23,8 +24,8 @@ $(document).ready(function (e) {
 //         $('#name').empty().append('')
 //     })
 // })
-
 // 每一行問題+選項 empty append 共5行 
+
 
 // 長條圖/圓餅圖切換
 $(document).ready(function () {
@@ -36,6 +37,8 @@ $(document).ready(function () {
     })
 })
 
+
+//填寫問卷後送出至確認頁
 $(document).ready(function () {
 
     $('#sendBtn').click(function (e) {
@@ -46,6 +49,8 @@ $(document).ready(function () {
     })
 })
 
+
+//點選填寫按鈕至問卷
 $(document).ready(function () {
 
     $(document).on('click', 'button[id*=goWrite]', function (e) {
@@ -58,5 +63,22 @@ $(document).ready(function () {
 
         }))
         window.location.href = "http://127.0.0.1:5500/questionnaire.html"
+    })
+})
+
+
+//點選前往按鈕至問卷統計
+$(document).ready(function () {
+
+    $(document).on('click', 'button[id*=goStatistics]', function (e) {
+        e.preventDefault()
+
+        let id = $(this).prop('id').split('_')[1]
+
+        sessionStorage.setItem('id', JSON.stringify({
+            id: id
+
+        }))
+        window.location.href = "http://127.0.0.1:5500/statistics.html"
     })
 })

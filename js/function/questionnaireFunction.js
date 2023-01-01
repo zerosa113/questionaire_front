@@ -78,7 +78,7 @@ function getAllQuestionnaire() {
                         <td>${item.questions.title}</td><td>${item.message}</td>
                         <td>${item.questions.startTime}</td>
                         <td>${item.questions.endTime}</td>
-                        <td><button ><a href="statistics.html">前往</a></button></td>
+                        <td><button id="goStatistics_${item.questions.id}" >前往</button></td>
                     </tr>`)
                 }
                 // $.each(questionsResList, function (index, value) {
@@ -99,7 +99,7 @@ function getAllQuestionnaire() {
     })
 }
 
-//
+//取得問卷內容
 function getQuestionsDetails(id) {
 
     let objPostData = { id: id }
@@ -170,6 +170,76 @@ function getQuestionsDetails(id) {
                         }
                     })
                 })
+            }
+        },
+        error: function (e) {
+            console.log(e)
+            alert('Failed')
+        }
+
+    })
+}
+
+function statistics(strTitle) {
+
+    let objPostData = { title: strTitle }
+
+    $.ajax({
+        url: 'http://localhost:8080/api/statistics',
+        method: 'POST',
+        contentType: 'application/json',
+        dataType: 'json',
+        data: JSON.stringify(objPostData),
+        success: function (res) {
+
+            let { message, statics } = res
+
+            if (message === '問卷標題為空') {
+                alert('問卷標題為空')
+            } else if (message === '該問卷無題目') {
+                alert('該問卷無題目')
+            } else if (message === '該問卷目前無人作答') {
+                alert('該問卷目前無人作答')
+            } else {
+
+                $('#pic').empty()
+
+                let { } = qus
+                let { } = optionNum
+
+
+
+
+                $.each(statics, function (index, value) {
+
+                    qus.add(index)
+                    $.each(value, function (key, value2) {
+                        optionNum.add(value2)
+                    })
+
+                })
+
+
+                const ctx = document.getElementById('myChart');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['AAA', 'BBB', 'Yellow', 'Green', 'Purple', 'Orange'],
+                        datasets: [{
+                            label: '# of Votes',
+                            data: [20, 19, 3, 5, 2, 3],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+
             }
         },
         error: function (e) {
