@@ -1,7 +1,9 @@
-$(document).ready(function (e) {
+$(document).ready(function () {
 
-    let strTitle = $('#questionTitle').val()
-    statistics(strTitle)
+    let { id
+    } = JSON.parse(sessionStorage.getItem('id'))
+
+    statistics(id)
 
 })
 
@@ -24,8 +26,6 @@ $(document).ready(function (e) {
 //         }
 //     }
 // });
-
-
 
 // const doughnut = document.getElementById('myChart2');
 // new Chart(doughnut, {

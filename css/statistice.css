@@ -24,6 +24,8 @@ p {
 }
 
 #btn-change {
+    margin: auto;
+    margin-bottom: 40px;
     outline: none;
     border-color: #88bcff;
     padding: 5px 15px;
@@ -40,14 +42,14 @@ p {
     color: rgb(190, 176, 228);
     background-color: rgb(255, 255, 255);
     border: 2px rgb(180, 161, 233) solid;
-
     /* color:#003C9D;
     background-color:#fff;
     border:2px #003C9D solid; */
 }
 
-.btn-index {
+#btn-index {
     margin: auto;
+    margin-bottom: 40px;
     outline: none;
     border-color: #88bcff;
     padding: 5px 15px;

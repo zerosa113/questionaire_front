@@ -644,7 +644,7 @@ textarea {
 
 /* pic change Bar or Doughnut*/
 #pic {
-    background-color: rgb(255, 255, 255);
+    /* background-color: rgb(255, 255, 255); */
     -webkit-box-shadow: none;
     box-shadow: none;
 }
@@ -665,5 +665,9 @@ textarea {
     position: relative;
     transform: translate(10%, 0);
     display: block;
-    height: 420px;
+    height: 400px;
+}
+
+canvas {
+    margin-bottom: 60px;
 }

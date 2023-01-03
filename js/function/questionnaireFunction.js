@@ -180,9 +180,9 @@ function getQuestionsDetails(id) {
     })
 }
 
-function statistics(strTitle) {
+function statistics(id) {
 
-    let objPostData = { title: strTitle }
+    let objPostData = { id: id }
 
     $.ajax({
         url: 'http://localhost:8080/api/statistics',
@@ -192,7 +192,7 @@ function statistics(strTitle) {
         data: JSON.stringify(objPostData),
         success: function (res) {
 
-            let { message, statics } = res
+            let { message, qusAndOptions } = res
 
             if (message === '問卷標題為空') {
                 alert('問卷標題為空')
@@ -200,46 +200,103 @@ function statistics(strTitle) {
                 alert('該問卷無題目')
             } else if (message === '該問卷目前無人作答') {
                 alert('該問卷目前無人作答')
+            } else if (message === '查無此問卷') {
+                alert('查無此問卷')
+
             } else {
+                // $('#pic').empty()
 
-                $('#pic').empty()
+                // let { } = qus
+                // let { } = optionNum
+                // var qusOption = []
+                // var qus = []
+                // var optionNum = []
 
-                let { } = qus
-                let { } = optionNum
-
-
-
-
-                $.each(statics, function (index, value) {
-
-                    qus.add(index)
+                $.each(qusAndOptions, function (index, value) {
+                    $('.statisticsBar').append(`<p>${index}</p>`)
+                    $('.statisticsBar').append(`<canvas id="${index}"></canvas>`)
+                    // $('.statisticsDoughnut').append(`<canvas id="1"></canvas>`)
+                    var qus = []
+                    qus.push(index)
+                    var qusOption = []
+                    var optionNum = []
+                    const ctx = document.getElementById(index);
                     $.each(value, function (key, value2) {
-                        optionNum.add(value2)
+
+                        qusOption.push(key)
+                        optionNum.push(value2)
                     })
+                    // 長條圖
+                    new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: qusOption,
+                            datasets: [{
+                                label: qus,
+                                data: optionNum,
+                                borderWidth: 1
+                            }],
 
-                })
-
-
-                const ctx = document.getElementById('myChart');
-                new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: ['AAA', 'BBB', 'Yellow', 'Green', 'Purple', 'Orange'],
-                        datasets: [{
-                            label: '# of Votes',
-                            data: [20, 19, 3, 5, 2, 3],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
                             }
                         }
-                    }
-                });
+                    });
+                })
 
+                // 圓餅圖
+                $.each(qusAndOptions, function (index, value) {
+                    let max = 99999;
+                    let min = 1;
+                    random = Math.random() * max + min
+
+                    $('.statisticsDoughnut').append(`<p>${index}</p>`)
+                    $('.statisticsDoughnut').append(`<canvas id="${random}"></canvas>`)
+                    var qus = []
+                    qus.push(index)
+                    var qusOption = []
+                    var optionNum = []
+                    const ctx = document.getElementById(random);
+                    $.each(value, function (key, value2) {
+
+                        qusOption.push(key)
+
+                        optionNum.push(value2)
+                    })
+
+                    // 圓餅圖
+                    const doughnut = document.getElementById(random);
+                    new Chart(doughnut, {
+                        type: 'doughnut',
+                        data: {
+                            labels: qusOption,
+                            datasets: [{
+                                label: qus,
+                                data: optionNum,
+                                backgroundColor: [
+                                    'rgb(255, 99, 132)',
+                                    'rgb(54, 162, 235)',
+                                    'rgb(255, 205, 86)',
+                                    'rgb(25, 99, 132)',
+                                    'rgb(123, 162, 235)'
+                                ],
+                                hoverOffset: 4
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+
+                })
             }
         },
         error: function (e) {
