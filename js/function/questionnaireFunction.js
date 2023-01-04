@@ -64,30 +64,66 @@ function getAllQuestionnaire() {
             } else {
 
                 $('#showQuestionnaireTable').empty()
-                $('#showQuestionnaireTable').append(`<tr><th>填寫</th><th>問卷</th><th>狀態</th><th>開始時間</th><th>結束時間</th><th>觀看統計</th></tr>`)
-                // $('#showQuestionnaireTable').append(`<tr><th>問卷</th><th>狀態</th><th>開始時間</th><th>結束時間</th></tr>`)
-                // map的foreach
-                // $.each(orderInfoMap, function (key, value) {
-                //     $('#showQuestionaireTable').append(`<tr><td>${key}</td><td>${value}</td></tr>`)
-                // })
+                $('#showQuestionnaireTable').append(`<thead><tr><th>填寫</th><th>問卷</th><th>狀態</th><th>開始時間</th><th>結束時間</th><th>觀看統計</th></tr></thead>`)
+
+                // var len = 1;
+                // //確認該集合會被分成幾頁，分成幾頁就代表需要幾個頁面按鈕,封裝封裝方便多次運用
+                // function limits() {
+                //     var countLim = Math.ceil(questionsResList.length / len);//餘數也算是一頁，這裡用向上取整
+                //     //確認頁面按鈕個數，進行迴圈顯示到頁面上
+                //     document.getElementById("inputs").innerHTML = '';//清空一下
+                //     for (var i = 1; i <= countLim; i++) {
+                //         //     document.getElementById("inputs").innerHTML += '<input type="button" value="' + i + '" onclick="limitinput(this)"/>';//每個頁面按鈕都繫結上一個點選事件
+                //         // }
+                //         document.getElementById("inputs").innerHTML += '<li class="pagination__item active" onclick="limitinput(this)">' + i + '</li>';//每個頁面按鈕都繫結上一個點選事件
+                //     }
+                // }
+                // var choose = 0;//建立一個全域性變數用來儲存當前處於第幾個頁面
+                // //點選按鈕獲取當前按鈕的值進行選擇當前table是第幾頁資料
+                // function limitinput(ids) {
+
+                //     choose = ids.value;
+                //     tablestr(choose);//重新整理table資料
+                //     limits();//重新整理頁面按鈕
+                //     ids.style.backgroundColor = 'red';//當前點選的頁面按鈕背景顏色改變為紅色
+                //     liminputcolor(choose);//頁面按鈕變色
+                // }
+                // //通過當前頁面按鈕和頁面資料長度將資料放進table內，封裝封裝！！！必須封裝
+                // function tablestr(num) {//num是指當前哪個頁面
+                //     var num1 = (num - 1) * len;//確定迴圈開始的集合下標
+                //     var num2 = num * len;//確定迴圈結束的結束下標
+                //     document.getElementById("showQuestionnaireTable").innerHTML = '';//清空一下
+                //     for (var i = num1; i < num2; i++) {//遍歷陣列
+                //         var str = '';
+                //         for (var h in questionsResList[i]) {//遍歷集合
+                //             str += '<td>' + questionsResList[i][h] + '</td>';
+                //         }
+                //         document.getElementById("showQuestionnaireTable").innerHTML += '<tr>' + str + '</tr>';//每迴圈一次新增一條資料
+                //     }
+                // }
+                // function liminputcolor(choose) {
+                //     document.getElementById("inputs").childNodes[choose - 1].style.backgroundColor = "#444";
+                // }
+                // //初始化，當前頁面顯示為第一頁
+                // limits();//頁面按鈕生成
+                // document.getElementById("inputs").childNodes[0].style.backgroundColor = "#60226b";//第一個按鈕的背景顏色為紅色
+                // tablestr(1);//table資料顯示
 
                 for (let item of questionsResList) {
                     $('#showQuestionnaireTable').append(`
+                    <tbody>
                     <tr>
                         <td><button id="goWrite_${item.questions.id}" >填寫問卷</button></td>
                         <td>${item.questions.title}</td><td>${item.message}</td>
                         <td>${item.questions.startTime}</td>
                         <td>${item.questions.endTime}</td>
                         <td><button id="goStatistics_${item.questions.id}" >前往</button></td>
-                    </tr>`)
+                    </tr>
+                    </tbody>`)
                 }
                 // $.each(questionsResList, function (index, value) {
                 //     $('#showQuestionnaireTable').append(`<tr><td><button id ="goWrite_${value.questions.id}"><a href="questionnaire.html">填寫問卷</a></button></td><td>${value.questions.title}</td><td>${value.message}</td><td>${value.questions.startTime}</td><td>${value.questions.endTime}</td>
                 //     <td><button ><a href="statistics.html">前往</a></button></td></tr>`)
-                //     // alert($('#goWrite').val())
-
-                //     // 統計頁< button id = "goSatistics_${value.questions.id}" typy = "button" > 前往</button >
-
                 // })
             }
         },
