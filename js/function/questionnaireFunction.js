@@ -128,7 +128,7 @@ function getQuestionsDetails(id) {
                                         <td>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="${key}"
-                                                    id="flexRadioDefault1">
+                                                    id="flexRadioDefault_${optionKey}">
                                                 <label class="form-check-label" for="flexRadioDefault1">
                                                     ${optionKey}
                                                 </label>

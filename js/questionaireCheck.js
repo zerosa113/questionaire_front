@@ -16,6 +16,8 @@ $(document).ready(function () {
     //     result = $(this).val();
     // });
     // alert(flexRadioDefaultSex)
+    // alert(userName)
+
     if (flexRadioDefaultSex == true) {
         $('#flexRadioDefaultSex').getElementById("flexRadioDefaultSex").checked = true
     }
