@@ -45,6 +45,7 @@ $(document).ready(function () {
             map.set($(this).attr('name'), $(this).prop('id'))
         });
         alert(map.size)
+        alert(map[1])
         $.each(map, function (key, value) {
             alert(key)
             alert(value)
