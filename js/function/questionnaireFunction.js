@@ -25,15 +25,8 @@ function getQuestionnaireByNum(num) {
                 alert('分頁數字錯誤')
             } else {
 
-
-
                 $('#showQuestionnaireTable').empty()
                 $('#showQuestionnaireTable').append(`<tr><th>填寫</th><th>問卷</th><th>狀態</th><th>開始時間</th><th>結束時間</th><th>觀看統計</th></tr>`)
-
-                // map的foreach
-                // $.each(orderInfoMap, function (key, value) {
-                //     $('#showQuestionaireTable').append(`<tr><td>${key}</td><td>${value}</td></tr>`)
-                // })
 
                 $.each(questionsResList, function (index, value) {
                     // $('#showQuestionnaireTable').append(`<tr><th>問卷</th><th>狀態</th><th>開始時間</th><th>結束時間</th></tr>`)
