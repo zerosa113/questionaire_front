@@ -41,14 +41,18 @@ $(document).ready(function () {
         $('#sendBtn').click(function (e) {
             e.preventDefault()
 
-            let title
+            var yes = confirm('確定送出嗎？');
+            if (yes) {
+                alert('感謝填寫');
+                let title
                 = JSON.parse(sessionStorage.getItem('title'))
 
             catchAnswerInfo(title.title, aa.userName, aa.userPhone, aa.userEmail, aa.userAge, obj)
+            window.location.href = "http://127.0.0.1:5500/index.html"
 
-            // window.location.href = "http://127.0.0.1:5500/index.html"
-
-
+            } else {
+                alert('取消送出');
+            }
         })
     })
 

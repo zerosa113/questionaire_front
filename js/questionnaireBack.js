@@ -11,7 +11,6 @@ $(document).ready(function () {
     let length= JSON.parse(sessionStorage.getItem('check'))
     $.each(length.map, function (key, value) {
 
-        alert(key)
         $("input:checkbox[value="+value.value+"]").attr("checked","checked");
     })
 

@@ -25,7 +25,7 @@ $(document).ready(function () {
         let startDate = $('#startDate').val()
         let endDate = $('#endDate').val()
         let num = $(this).prop('id').split('_')[1]
-        alert(num)
+
         // $('#showQuestionnaireTable').empty()
         searchQuestionnaire(strTitle, startDate, endDate, num)
 
@@ -47,8 +47,57 @@ $(document).ready(function () {
 $(document).ready(function () {
 
     $('#goCheckBtn').click(function (e) {
-        // window.location.href = "http://127.0.0.1:5500/statistics.html"
         e.preventDefault()
+        // var check = $("input[name='']:checked").length
+        // var chkbox = "";
+        // $("input[type=checkbox]:checked").each(function (i) {
+
+        //     if ($(this).prop('id').split('_')[1] == "") {
+
+        //         alert("項目未勾選！")
+        //     }
+        //     // else {
+        //     //     chkbox += "," + $(this).val();
+        //     // }
+
+        // });
+
+        // if (chkbox == "") {
+        //     alert("項目未勾選！");
+        // }
+
+
+        if ($('#name').val() == "") {
+            alert("未填入「姓名」資料");
+            return false;
+        } else if ($('#phone').val() == "") {
+            alert("未填入「電話」資料");
+            return false;
+        } else if ($('#email').val() == "") {
+            alert("未填入「email」資料");
+            return false;
+        }
+        else if ($('#age').val() == "") {
+            alert("未填入「年齡」資料");
+            return false;
+        }
+        else if (typeof $("input[type=checkbox]").val() == "undefined") {
+            alert("填入check");
+            return false;
+        }
+
+
+        // $("input[type=checkbox]:checked").each(function () {
+        //     var name = $(this).attr('name')
+
+        //     var check = $('input[name="問題a"]:checked').length
+        //     if (check == 0) {
+        //         alert("有未勾選的題目");
+        //         return false;
+        //     }
+
+        // });
+
 
         // let strId = $('#flexRadioDefault').prop('id').split('_')[1]
         // let radioChecked = $('#flexRadioDefault_' + strId).is(":checked")
@@ -144,7 +193,6 @@ $(document).ready(function () {
     })
 })
 
-
 //點選填寫按鈕至問卷
 $(document).ready(function () {
     // $('#QuestionnaireInput').empty()
@@ -154,6 +202,17 @@ $(document).ready(function () {
 
         let id = $(this).prop('id').split('_')[1]
 
+        let message = $(this).prop('id').split('_')[2]
+
+        if (message === "未開始") {
+            alert("唉呦~不要那麼猴急")
+            return false
+        } else if (message === "已完結") {
+            alert("看不懂國字是不是")
+            return false
+        }
+
+
         sessionStorage.setItem('id', JSON.stringify({
             id: id
 
@@ -161,7 +220,6 @@ $(document).ready(function () {
         window.location.href = "http://127.0.0.1:5500/questionnaire.html"
     })
 })
-
 
 //點選前往按鈕至問卷統計
 $(document).ready(function () {

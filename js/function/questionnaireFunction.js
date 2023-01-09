@@ -24,17 +24,18 @@ function getQuestionnaireByNum(num) {
             } else if (message === '分頁數字錯誤') {
                 alert('分頁數字錯誤')
             } else {
-
                 $('#showQuestionnaireTable').empty()
                 $('#showQuestionnaireTable').append(`<tr><th>填寫</th><th>問卷</th><th>狀態</th><th>開始時間</th><th>結束時間</th><th>觀看統計</th></tr>`)
 
                 $.each(questionsResList, function (index, value) {
                     // $('#showQuestionnaireTable').append(`<tr><th>問卷</th><th>狀態</th><th>開始時間</th><th>結束時間</th></tr>`)
-                    $('#showQuestionnaireTable').append(`<tr><td><button id="goWrite_${value.questions.id}" >填寫問卷</button></td><td>${value.questions.title}</td><td>${value.message}</td><td>${value.questions.startTime}</td><td>${value.questions.endTime}</td><td><button id="goStatistics_${value.questions.id}" >前往</button></td></tr>`)
+                    $('#showQuestionnaireTable').append(`<tr><td><button id="goWrite_${value.questions.id}_${value.message}" >填寫問卷</button></td><td>${value.questions.title}</td><td id="tableMessage">${value.message}</td><td>${value.questions.startTime}</td><td>${value.questions.endTime}</td><td><button id="goStatistics_${value.questions.id}" >前往</button></td></tr>`)
 
                 })
 
                 // 建立分頁按鈕(10筆)
+                $('.pagination__group').empty()
+
                 var buttonNum = Math.ceil(num / 10)
                 for (var i = 1; i <= buttonNum; i++) {
 
@@ -67,7 +68,7 @@ function searchQuestionnaire(strTitle, startDate, endDate, num) {
         data: JSON.stringify(objPostData),
         success: function (res) {
 
-            let { message, questionsResList } = res
+            let { message, questionsResList, num } = res
 
             if (message === '開始時間為空') {
                 alert('開始時間為空')
@@ -84,25 +85,32 @@ function searchQuestionnaire(strTitle, startDate, endDate, num) {
                 $('#showQuestionnaireTable').empty()
                 $('#showQuestionnaireTable').append(`<tr><th>填寫</th><th>問卷</th><th>狀態</th><th>開始時間</th><th>結束時間</th><th>觀看統計</th></tr>`)
 
-                // map的foreach
-                // $.each(orderInfoMap, function (key, value) {
-                //     $('#showQuestionaireTable').append(`<tr><td>${key}</td><td>${value}</td></tr>`)
-                // })
-
                 $.each(questionsResList, function (index, value) {
                     // $('#showQuestionnaireTable').append(`<tr><th>問卷</th><th>狀態</th><th>開始時間</th><th>結束時間</th></tr>`)
-                    $('#showQuestionnaireTable').append(`<tr><td><button id="goWrite_${value.questions.id}" >填寫問卷</button></td><td>${value.questions.title}</td><td>${value.message}</td><td>${value.questions.startTime}</td><td>${value.questions.endTime}</td><td><button id="goStatistics_${value.questions.id}" >前往</button></td></tr>`)
+                    $('#showQuestionnaireTable').append(`<tr><td><button id="goWrite_${value.questions.id}_${value.message}" >填寫問卷</button></td><td>${value.questions.title}</td><td id="tableMessage">${value.message}</td><td>${value.questions.startTime}</td><td>${value.questions.endTime}</td><td><button id="goStatistics_${value.questions.id}" >前往</button></td></tr>`)
 
                 })
+
+                // 建立分頁按鈕(10筆)
+                $('.pagination__group').empty()
+
+                var buttonNum = Math.ceil(num / 10)
+                for (var i = 1; i <= buttonNum; i++) {
+
+                    $(".pagination__group").append(`
+                    <li id="page_${i}" class="pagination__item active" value="${i}">${i}</li>
+                    `)
+                    // <button id="page_${i}" class="pagination__item active" value="${i}">${i}</button>
+                }
             }
         },
         error: function (e) {
             console.log(e)
             alert('Failed')
         }
-
     })
 }
+
 //顯示所有問卷
 function getAllQuestionnaire() {
 
@@ -143,7 +151,6 @@ function getAllQuestionnaire() {
         }
     })
 }
-
 
 //取得問卷內容
 function getQuestionsDetails(id) {
