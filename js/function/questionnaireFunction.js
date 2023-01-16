@@ -182,7 +182,17 @@ function getQuestionsDetails(id) {
 
                 $.each(qusAndOptions, function (key, value) {
 
-                    $('#questionList').append(`<p>${key}</p>`)
+                    // 在問題後加上單選或多選的提示
+                    var type = ''
+                    $.each(value, function (optionKey, optionValue) {
+                        if (optionValue === 0) {
+                            type = key + '(單選)'
+                        }
+                        else if (optionValue === 1) {
+                            type = key + '(多選)'
+                        }
+                    })
+                    $('#questionList').append(`<p>${type}</p>`)
 
                     $.each(value, function (optionKey, optionValue) {
 
