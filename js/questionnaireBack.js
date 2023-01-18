@@ -6,13 +6,18 @@ $(document).ready(function () {
     //     var a=sessionStorage.getItem(i);
     //     $("input:checkbox[value="+a+"]").attr("checked","checked");
     // }
-    
-    // localStorage.clear();
-    let length= JSON.parse(sessionStorage.getItem('check'))
-    $.each(length.map, function (key, value) {
+    let aa
+    = JSON.parse(sessionStorage.getItem('check'))
 
-        $("input:checkbox[value="+value.value+"]").attr("checked","checked");
-    })
+    // localStorage.clear();
+    
+    
+    // $.each(length.map, function (key, value) {
+        
+    //     document.getElementById(value.value).checked = true;
+
+    //     $("input:checkbox[value="+value.value+"]").attr("checked","checked");
+    // })
 
 
 });

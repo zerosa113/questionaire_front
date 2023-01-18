@@ -11,7 +11,11 @@ $(document).ready(function () {
         let startDate = $('#startDate').val()
         let endDate = $('#endDate').val()
         let num = 1
-        // $('#showQuestionnaireTable').empty()
+
+        document.getElementById('txtTitle').value = ""
+        document.getElementById('startDate').value = ""
+        document.getElementById('endDate').value = ""
+
         searchQuestionnaire(strTitle, startDate, endDate, num)
 
     })
@@ -36,7 +40,7 @@ $(document).ready(function () {
 $(document).ready(function () {
 
     $('#btn-change').click(function (e) {
-        // window.location.href = "http://127.0.0.1:5500/statistics.html"
+        // window.location.href = "http://127.0.0.1:5502/statistics.html"
         e.preventDefault()
         $('#pic').toggleClass('open')
     })
@@ -48,24 +52,6 @@ $(document).ready(function () {
 
     $('#goCheckBtn').click(function (e) {
         e.preventDefault()
-        // var check = $("input[name='']:checked").length
-        // var chkbox = "";
-        // $("input[type=checkbox]:checked").each(function (i) {
-
-        //     if ($(this).prop('id').split('_')[1] == "") {
-
-        //         alert("項目未勾選！")
-        //     }
-        //     // else {
-        //     //     chkbox += "," + $(this).val();
-        //     // }
-
-        // });
-
-        // if (chkbox == "") {
-        //     alert("項目未勾選！");
-        // }
-
 
         if ($('#name').val() == "") {
             alert("未填入「姓名」資料");
@@ -81,27 +67,41 @@ $(document).ready(function () {
             alert("未填入「年齡」資料");
             return false;
         }
-        else if (typeof $("input[type=checkbox]").val() == "undefined") {
-            alert("填入check");
+        else if ($('#age').val() < 0) {
+            alert("「年齡」資料為負數");
             return false;
         }
 
+        var y = 0
+        var sex = document.getElementsByName('性別');
+        for (var check of sex) {
+            if (check.checked) {
+                y++
+            }
+        }
+        if (y === 0) {
+            alert('尚未選取性別');
+            throw BreakException
+        }
 
-        // $("input[type=checkbox]:checked").each(function () {
-        //     var name = $(this).attr('name')
-
-        //     var check = $('input[name="問題a"]:checked').length
-        //     if (check == 0) {
-        //         alert("有未勾選的題目");
-        //         return false;
-        //     }
-
-        // });
+        let aa
+            = JSON.parse(sessionStorage.getItem('title'))
 
 
-        // let strId = $('#flexRadioDefault').prop('id').split('_')[1]
-        // let radioChecked = $('#flexRadioDefault_' + strId).is(":checked")
-
+        $.each(aa.qusAndOptions, function (key, value) {
+            var x = 0
+            var checkboxes = document.getElementsByName(key);
+            for (var checkbox of checkboxes) {
+                if (checkbox.checked) {
+                    x++
+                }
+            }
+            if (x === 0) {
+                alert('題目:' + key + ' 尚未作答');
+                throw BreakException
+            }
+        }
+        )
 
         //豪哥版
         map = [];
@@ -151,7 +151,6 @@ $(document).ready(function () {
 
 
         // 使用者必填資料存進session
-
         sessionStorage.setItem('check', JSON.stringify({
             userName: $('#name').val(),
             userPhone: $('#phone').val(),
@@ -160,7 +159,7 @@ $(document).ready(function () {
             map: map
         }
         ))
-        window.location.href = "http://127.0.0.1:5500/questionnaireCheck.html"
+        window.location.href = "http://127.0.0.1:5502/questionnaireCheck.html"
 
     })
 })
@@ -186,7 +185,7 @@ $(document).ready(function () {
             map: map
         }))
 
-        // window.location.href = "http://127.0.0.1:5500/questionnaire.html"
+        // window.location.href = "http://127.0.0.1:5502/questionnaire.html"
         //回上一頁
         history.back();
 
@@ -217,7 +216,7 @@ $(document).ready(function () {
             id: id
 
         }))
-        window.location.href = "http://127.0.0.1:5500/questionnaire.html"
+        window.location.href = "http://127.0.0.1:5502/questionnaire.html"
     })
 })
 
@@ -233,6 +232,6 @@ $(document).ready(function () {
             id: id
 
         }))
-        window.location.href = "http://127.0.0.1:5500/statistics.html"
+        window.location.href = "http://127.0.0.1:5502/statistics.html"
     })
 })
