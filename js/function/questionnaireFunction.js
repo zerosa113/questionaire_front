@@ -337,7 +337,7 @@ function statistics(id) {
                         data: {
                             labels: qusOption,  //選項
                             datasets: [{
-                                label: qus,     //統計圖顏色提示
+                                label: "總數",     //統計圖顏色提示
                                 data: optionNum,    //統計數字
                                 backgroundColor: [
                                     'rgb(255, 99, 132)',
