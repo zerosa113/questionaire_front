@@ -171,7 +171,8 @@ function getQuestionsDetails(id) {
                 alert('查無此問卷')
             } else {
                 sessionStorage.setItem('title', JSON.stringify({
-                    title: title
+                    title: title,
+                    qusAndOptions: qusAndOptions
                 }
                 ))
 
@@ -182,7 +183,6 @@ function getQuestionsDetails(id) {
 
                 $.each(qusAndOptions, function (key, value) {
 
-                    // 在問題後加上單選或多選的提示
                     var type = ''
                     $.each(value, function (optionKey, optionValue) {
                         if (optionValue === 0) {
@@ -221,7 +221,7 @@ function getQuestionsDetails(id) {
                                             <div class="form-check-input">
                                                 <input class="form-check-input" type="checkbox" value="" name="${key}"
                                                     id="flexCheckDefault_${optionKey}">
-                                                <label class="form-check-label" for="flexCheckDefault_${optionKey}">
+                                                <label class="form-check-label" for="flexCheckDefault_${optionKey}"  id="${optionKey}">
                                                     ${optionKey}
                                                 </label>
                                             </div>
@@ -254,7 +254,7 @@ function statistics(id) {
         data: JSON.stringify(objPostData),
         success: function (res) {
 
-            let { message, qusAndOptions } = res
+            let { message, qusAndOptions, statisticsList } = res
 
             if (message === '問卷標題為空') {
                 alert('問卷標題為空')
@@ -308,9 +308,25 @@ function statistics(id) {
                         }
                     });
                 })
+                var statistics = new Map()
+                var map = new Map()
+                for (let item of statisticsList) {
+                    statistics.set(item.quesion, '')
+                }
 
+
+                statistics.forEach(function (value2, key2) {
+                    var option = new Map()
+                    for (let item2 of statisticsList) {
+                        if (key2 === item2.quesion) {
+                            option.set(item2.option, item2.percentage)
+                        }
+                    }
+                    map.set(key2, option)
+
+                })
                 // 圓餅圖
-                $.each(qusAndOptions, function (index, value) {
+                map.forEach(function (value, index) {
                     // index命名不可重複以亂數代替
                     let max = 99999;
                     let min = 1;
@@ -319,25 +335,22 @@ function statistics(id) {
                     $('.statisticsDoughnut').append(`<p>${index}</p>`)
                     $('.statisticsDoughnut').append(`<canvas id="${random}"></canvas>`)
                     var qus = []
-                    qus.push(index)
+                    qus.push('單位: %')
                     var qusOption = []
                     var optionNum = []
                     const ctx = document.getElementById(random);
-                    $.each(value, function (key, value2) {
-
+                    value.forEach(function (value2, key) {
                         qusOption.push(key)
 
                         optionNum.push(value2)
                     })
-
-                    // 圓餅圖
                     const doughnut = document.getElementById(random);
                     new Chart(doughnut, {
                         type: 'doughnut',
                         data: {
                             labels: qusOption,  //選項
                             datasets: [{
-                                label: "總數",     //統計圖顏色提示
+                                label: qus,     //統計圖顏色提示
                                 data: optionNum,    //統計數字
                                 backgroundColor: [
                                     'rgb(255, 99, 132)',
@@ -349,13 +362,6 @@ function statistics(id) {
                                 hoverOffset: 4
                             }]
                         },
-                        options: {
-                            scales: {
-                                y: {
-                                    beginAtZero: true
-                                }
-                            }
-                        }
                     });
                 })
             }

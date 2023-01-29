@@ -46,11 +46,11 @@
                     <div id="QuestionnaireInput">
                         <form action="" method="get">
                             <p>姓名(必填) <input id="name" type="text" placeholder="請輸入姓名" required></p>
-                            <p>手機(必填) <input id="phone" type="text" placeholder="請輸入手機"
+                            <p>手機(必填) <input id="phone" type="text" placeholder="請輸入手機 (例:0912345678)"
                                     pattern="09\d{2}\-?\d{3}\-?\d{3}" required></p>
-                            <p>Email(必填) <input id="email" type="email" placeholder="請輸入email"
+                            <p>Email(必填) <input id="email" type="email" placeholder="請輸入email (例:abc@mail.com)"
                                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required></p>
-                            <p>年齡(必填) <input id="age" type="number" placeholder="請填年齡" required></p>
+                            <p>年齡(必填) <input id="age" type="number" min="0" placeholder="請填入年齡" required></p>
                             <div class="col">
                                 <div class="row">
                                     <p>性別(必填)</p>
@@ -96,6 +96,32 @@
                                         </tr>
                                     </table>
                                 </div>
+                                <!-- <table>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault1">
+                                                    多選
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault2">
+                                                    多選2
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table> -->
                             </div>
                             <!-- 選擇題 -->
                             <div class="col">

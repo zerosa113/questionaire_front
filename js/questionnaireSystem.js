@@ -71,7 +71,6 @@ $(document).ready(function () {
             alert("「年齡」資料為負數");
             return false;
         }
-
         var y = 0
         var sex = document.getElementsByName('性別');
         for (var check of sex) {
@@ -102,6 +101,8 @@ $(document).ready(function () {
             }
         }
         )
+
+
 
         //豪哥版
         map = [];
@@ -151,6 +152,7 @@ $(document).ready(function () {
 
 
         // 使用者必填資料存進session
+
         sessionStorage.setItem('check', JSON.stringify({
             userName: $('#name').val(),
             userPhone: $('#phone').val(),
@@ -185,9 +187,9 @@ $(document).ready(function () {
             map: map
         }))
 
-        // window.location.href = "http://127.0.0.1:5502/questionnaire.html"
+        // window.location.href = "http://127.0.0.1:5500/questionnaire.html"
         //回上一頁
-        history.back();
+        history.back()
 
     })
 })

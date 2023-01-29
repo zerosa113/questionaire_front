@@ -8,7 +8,7 @@ $(document).ready(function () {
     // }
     let aa
     = JSON.parse(sessionStorage.getItem('check'))
-
+   
     // localStorage.clear();
     
     
