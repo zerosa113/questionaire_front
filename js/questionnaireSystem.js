@@ -12,6 +12,13 @@ $(document).ready(function () {
         let endDate = $('#endDate').val()
         let num = 1
 
+        sessionStorage.setItem('search', JSON.stringify({
+            strTitle: strTitle,
+            startDate: startDate,
+            endDate: endDate
+        }
+        ))
+
         document.getElementById('txtTitle').value = ""
         document.getElementById('startDate').value = ""
         document.getElementById('endDate').value = ""
@@ -25,9 +32,12 @@ $(document).ready(function () {
         // $(document).on('click', 'button[id*=page]', function (e) {
         e.preventDefault()
 
-        let strTitle = $('#txtTitle').val()
-        let startDate = $('#startDate').val()
-        let endDate = $('#endDate').val()
+        let aa = JSON.parse(sessionStorage.getItem('search'))
+
+        let strTitle = aa.strTitle
+        let startDate = aa.startDate
+        let endDate = aa.endDate
+
         let num = $(this).prop('id').split('_')[1]
 
         // $('#showQuestionnaireTable').empty()
